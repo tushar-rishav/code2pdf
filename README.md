@@ -2,7 +2,7 @@
 Converts python file into pdf with syntax highlighting
 
 ##### Todo
-[ ] Syntax highlighting
+- [ ] Fix syntax highlighting bug
 
 (Work under progress)
 
