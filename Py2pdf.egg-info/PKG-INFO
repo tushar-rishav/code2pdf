@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: Py2pdf
+Version: 0.0.3
+Summary: Converts python script into pdf file with syntax highlighting
+Home-page: https://github.com/tushar-rishav/py2pdf/
+Author: Tushar Gautam
+Author-email: tushar.rishav@gmail.com
+License: GNU General Public License v3 (GPLv3)
+Description: Py2pdf :fax:
+        ============
+        
+        Converts python file into pdf with syntax highlighting
+Keywords: reminder,battery,notification,voice alert,python
+Platform: UNKNOWN
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: System :: Monitoring

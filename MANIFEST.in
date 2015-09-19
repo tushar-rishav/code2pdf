@@ -1,0 +1,3 @@
+include *.txt
+include Py2pdf/css/py2html.css
+recursive-include  *.py

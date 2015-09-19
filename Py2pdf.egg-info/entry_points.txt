@@ -1,0 +1,3 @@
+[console_scripts]
+py2pdf = Py2pdf:main
+
