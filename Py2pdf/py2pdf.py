@@ -19,7 +19,7 @@ class Py2pdf:
         logging.getLogger().setLevel(logging.DEBUG)
         self.temp_location = "/tmp/temp.py"
         this_dir, this_filename = os.path.split(__file__)
-        self.style = os.path.join(this_dir, "css", "py2html.css")
+        self.style = os.path.join(this_dir, "py2html.py")
         logging.debug(self.style)
         self.size = size
         logging.debug(os.path.exists(self.style))   # check if the file has been added,

@@ -7,13 +7,13 @@ import sys,os
 
 extra = {}
 this_dir, this_filename = os.path.split(__file__)
-css_file = os.path.join(this_dir, "Py2pdf", "css", "py2html.css")
-ins_dir = os.path.join(this_dir, "Py2pdf", "css")
+css_file = os.path.join(this_dir, "Py2pdf", "py2html.py")
+ins_dir = os.path.join(this_dir, "Py2pdf")
 
 if sys.version_info >= (3,):
     extra['use_2to3'] = True
 setup(name='Py2pdf',
-      version='0.0.3',
+      version='0.0.4',
       install_requires=[
           r for r in open('requirements.txt', 'r').read().split('\n') if r],
       author='Tushar Gautam',

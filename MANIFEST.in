@@ -1,3 +1,2 @@
 include *.txt
-include Py2pdf/css/*.css
 recursive-include  *.py

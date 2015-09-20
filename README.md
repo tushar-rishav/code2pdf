@@ -2,13 +2,20 @@
 Converts python file into pdf with syntax highlighting and custom size
 
 #### Installation
+
 ###### Manually
+
 ```sh
-	python setup.py install
+python setup.py install
+
 ```
+Or
+
 ###### Using pip
+
 ```sh
-	pip install py2pdf
+pip install py2pdf
+
 ```
 
 #### Usage
@@ -18,20 +25,22 @@ Converts python file into pdf with syntax highlighting and custom size
 ###### Help
 
 ```sh
-	py2pdf -h
+py2pdf -h
+
 ```
 
 ###### Options
 
 ```sh
-	-i or --ifile path for input python file
-	-o or --ofile path for ouput pdf file
-	-s or --size for pdf file size. Available sizes are A2,A3 and A4. Default one is A3
+-i or --ifile path for input python file
+-o or --ofile path for ouput pdf file
+-s or --size for pdf file size. Available sizes are A2,A3 and A4. Default one is A3
 ```
 
 ###### Example
 ```sh
-	py2pdf -i ~/Py2PDF/Py2pdf/py2pdf.py -o ~/Py2PDF/Demo/demo.pdf -s a3
+py2pdf -i ~/Py2PDF/Py2pdf/py2pdf.py -o ~/Py2PDF/Demo/demo.pdf -s a3
+
 ```
 To see the demo for above check `Demo/` in github repo
 
@@ -39,10 +48,10 @@ To see the demo for above check `Demo/` in github repo
 
 ```py
 	
-	from Py2pdf.py2pdf import Py2pdf
-	ifile,ofile,size = "test.py", "test.pdf", "A4"
-	pdf = Py2pdf(ifile, ofile, size)	# create the Py2pdf object
-	pdf.init_print()	# call print method to print pdf
+from Py2pdf.py2pdf import Py2pdf
+ifile,ofile,size = "test.py", "test.pdf", "A4"
+pdf = Py2pdf(ifile, ofile, size)	# create the Py2pdf object
+pdf.init_print()	# call print method to print pdf
 
 ```
 
