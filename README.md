@@ -3,6 +3,9 @@ Converts python file into pdf with syntax highlighting and custom size
 
 #### Installation
 ```sh
+	python setup.py install
+```
+```sh
 	pip install py2pdf
 ```
 

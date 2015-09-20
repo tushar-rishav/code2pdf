@@ -8,7 +8,7 @@ Installation
 
 .. code:: sh
 
-        pip install py2pdf
+        python setup.py install
 
 Usage
 ^^^^^
