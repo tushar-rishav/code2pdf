@@ -14,8 +14,7 @@ if sys.version_info >= (3,):
     extra['use_2to3'] = True
 setup(name='Py2pdf',
       version='0.0.5',
-      install_requires=[
-          r for r in open('requirements.txt', 'r').read().split('\n') if r],
+      install_requires=['unittest2'],
       author='Tushar Gautam',
       author_email='tushar.rishav@gmail.com',
       packages=['Py2pdf', ],
