@@ -3,9 +3,12 @@ try:
 except ImportError:
     from distutils.core import setup
 
-import sys
+import sys,os
 
 extra = {}
+this_dir, this_filename = os.path.split(__file__)
+css_file = os.path.join(this_dir, "Py2pdf", "css", "py2html.css")
+ins_dir = os.path.join(this_dir, "Py2pdf", "css")
 if sys.version_info >= (3,):
     extra['use_2to3'] = True
 setup(name='Py2pdf',
@@ -15,7 +18,7 @@ setup(name='Py2pdf',
       author='Tushar Gautam',
       author_email='tushar.rishav@gmail.com',
       packages=['Py2pdf', ],
-      data_files=[('', ['py2html.css'])],
+      data_files=[(ins_dir, [css_file])],
       entry_points={
           'console_scripts': ['py2pdf=Py2pdf:main'],
       },
