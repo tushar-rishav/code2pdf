@@ -20,9 +20,9 @@ class Py2pdf:
         self.temp_location = "/tmp/temp.py"
         this_dir, this_filename = os.path.split(__file__)
         self.style = os.path.join(this_dir, "css", "py2html.css")
-        print self.style
+        logging.debug(self.style)
         self.size = size
-        logging.debug(os.path.exists(self.style))
+        logging.debug(os.path.exists(self.style))   # check if the file has been added,
         if not ifile:
             raise Exception("input file is required")
         else:
