@@ -17,7 +17,6 @@ Or
 pip install py2pdf
 
 ```
-
 #### Usage
 
 ##### A. As console app
@@ -56,7 +55,7 @@ pdf.init_print()	# call print method to print pdf
 ```
 
 #### Todo
-- [x] Fix syntax highlighting bug
+- [ ] Fix syntax highlighting bug
 - [ ] Add working demo
 
 #### Contributions
