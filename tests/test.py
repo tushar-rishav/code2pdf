@@ -7,14 +7,14 @@ class Py2pdfTestCase(unittest2.TestCase):
 
     def run_py2pdf(self):
         try:
-            balert_run = subprocess.Popen("py2pdf \
+            py2pdf_run = subprocess.Popen("py2pdf -h \
                 ", shell=True, stdout=subprocess.PIPE).stdout.read()
             return True
         except:
             return False
 
     def test_py2pdf(self):
-        self.assertTrue(self.run_balert())
+        self.assertTrue(self.run_py2pdf())
 
 if __name__ == "__main__":
     unittest2.main()
