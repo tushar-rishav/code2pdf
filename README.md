@@ -7,9 +7,6 @@ Converts python file into pdf with syntax highlighting and custom size
 	python setup.py install
 ```
 ###### Using pip
-```sh
-	pip install py2pdf
-```
 
 #### Usage
 
