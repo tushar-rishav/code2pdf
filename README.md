@@ -47,7 +47,7 @@ To see the demo for above check `Demo/` in github repo
 ```
 
 #### Todo
-- [x] Fix syntax highlighting bug
+- [ ] Fix syntax highlighting bug
 - [ ] Add working demo
 
 #### Contributions
