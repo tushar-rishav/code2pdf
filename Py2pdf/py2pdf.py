@@ -18,7 +18,7 @@ class Py2pdf:
         logging.getLogger().name = "py2pdf> "
         logging.getLogger().setLevel(logging.DEBUG)
         self.temp_location = "/tmp/temp.py"
-        self.style = "Py2pdf/css/py2html.css"
+        self.style = "py2html.css"
         self.size = size
         logging.debug(os.path.exists(self.style))
         if not ifile:
