@@ -1,7 +1,7 @@
 language: python
 python:
   - "2.7"
-# command to install package
+# command to install package. 
 before_install:
   - pip install setuptools --upgrade
 install:

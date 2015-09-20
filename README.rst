@@ -15,7 +15,7 @@ Converts python file into pdf with syntax highlighting and custom size
 .. figure:: https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif
    :alt: demo
 
-   demo
+
 Installation
 ^^^^^^^^^^^^
 
@@ -88,8 +88,6 @@ License
 
 .. figure:: https://cloud.githubusercontent.com/assets/7397433/9025904/67008062-3936-11e5-8803-e5b164a0dfc0.png
    :alt: gpl
-
-   gpl
 
 .. |Build Status| image:: https://travis-ci.org/tushar-rishav/py2pdf.svg?branch=master
    :target: https://travis-ci.org/tushar-rishav/py2pdf
