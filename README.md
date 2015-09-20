@@ -43,6 +43,7 @@ To see the demo for above check `Demo/` in github repo
 
 #### Todo
 - [x] Fix syntax highlighting bug
+- [ ] Add working demo
 
 #### Contributions
 Have an idea to make it better? Go ahead! I will be happy to see a pull request from you! :blush:
