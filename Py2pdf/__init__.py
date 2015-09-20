@@ -1,1 +1,1 @@
-from main import main
+from py2pdf import main

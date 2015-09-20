@@ -9,12 +9,13 @@ extra = {}
 if sys.version_info >= (3,):
     extra['use_2to3'] = True
 setup(name='Py2pdf',
-      version='0.0.3',
+      version='0.0.1',
       install_requires=[
           r for r in open('requirements.txt', 'r').read().split('\n') if r],
       author='Tushar Gautam',
       author_email='tushar.rishav@gmail.com',
       packages=['Py2pdf', ],
+      data_files=[('Py2pdf/css', ['Py2pdf/css/py2html.css'])],
       entry_points={
           'console_scripts': ['py2pdf=Py2pdf:main'],
       },
@@ -22,7 +23,8 @@ setup(name='Py2pdf',
       url='https://github.com/tushar-rishav/py2pdf/',
       description="Converts python script into pdf file with syntax highlighting",
       long_description=open('README').read(),
-      keywords=['reminder', 'battery','notification', 'voice alert', 'python'],
+      keywords=['reminder', 'battery',
+                'notification', 'voice alert', 'python'],
       classifiers=[
           'Operating System :: POSIX :: Linux',
           'Programming Language :: Python',
