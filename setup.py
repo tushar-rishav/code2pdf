@@ -13,7 +13,7 @@ ins_dir = os.path.join(this_dir, "Py2pdf")
 if sys.version_info >= (3,):
     extra['use_2to3'] = True
 setup(name='Py2pdf',
-      version='0.0.4',
+      version='0.0.5',
       install_requires=[
           r for r in open('requirements.txt', 'r').read().split('\n') if r],
       author='Tushar Gautam',

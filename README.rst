@@ -3,6 +3,19 @@ Py2pdf :fax:
 
 Converts python file into pdf with syntax highlighting and custom size
 
++------------------+------------------+--------------------+----------+
+| Build Status     | Version          | Downloads          | Python   |
++==================+==================+====================+==========+
+| |Build Status|   | |PyPI version|   | |PyPi downloads|   | |PyPI|   |
++------------------+------------------+--------------------+----------+
+
+`Demo <https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif
+   :alt: demo
+
+   demo
 Installation
 ^^^^^^^^^^^^
 
@@ -64,12 +77,6 @@ B. As module
     pdf = Py2pdf(ifile, ofile, size)    # create the Py2pdf object
     pdf.init_print()    # call print method to print pdf
 
-Todo
-^^^^
-
--  [x] Fix syntax highlighting bug
--  [ ] Add working demo
-
 Contributions
 ^^^^^^^^^^^^^
 
@@ -84,3 +91,11 @@ License
 
    gpl
 
+.. |Build Status| image:: https://travis-ci.org/tushar-rishav/py2pdf.svg?branch=master
+   :target: https://travis-ci.org/tushar-rishav/py2pdf
+.. |PyPI version| image:: https://badge.fury.io/py/py2pdf.svg
+   :target: http://badge.fury.io/py/py2pdf
+.. |PyPi downloads| image:: https://img.shields.io/pypi/dw/py2pdf.svg
+   :target: https://pypi.python.org/pypi/Py2pdf
+.. |PyPI| image:: https://img.shields.io/pypi/pyversions/Py2pdf.svg
+   :target: https://pypi.python.org/pypi/Py2pdf

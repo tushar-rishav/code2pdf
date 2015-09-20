@@ -1,6 +1,15 @@
 ### Py2pdf :fax:
 Converts python file into pdf with syntax highlighting and custom size
 
+| Build Status | Version | Downloads | Python   |
+| ------------ |---------|-----------|----------|
+| [![Build Status](https://travis-ci.org/tushar-rishav/py2pdf.svg?branch=master)](https://travis-ci.org/tushar-rishav/py2pdf)|[![PyPI version](https://badge.fury.io/py/py2pdf.svg)](http://badge.fury.io/py/py2pdf)| [![PyPi downloads](https://img.shields.io/pypi/dw/py2pdf.svg)](https://pypi.python.org/pypi/Py2pdf)|[![PyPI](https://img.shields.io/pypi/pyversions/Py2pdf.svg)](https://pypi.python.org/pypi/Py2pdf)
+
+### [Demo](https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif)
+![demo](https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif)
+
+
+
 #### Installation
 
 ###### Manually
@@ -53,10 +62,6 @@ pdf = Py2pdf(ifile, ofile, size)	# create the Py2pdf object
 pdf.init_print()	# call print method to print pdf
 
 ```
-
-#### Todo
-- [ ] Fix syntax highlighting bug
-- [ ] Add working demo
 
 #### Contributions
 Have an idea to make it better? Go ahead! I will be happy to see a pull request from you! :blush:
