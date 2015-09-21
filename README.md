@@ -8,7 +8,9 @@ Converts python file into pdf with syntax highlighting and custom size
 ### [Demo](https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif)
 ![demo](https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif)
 
-
+#### Dependencies
+- [x] [PyQt](http://www.riverbankcomputing.com/software/pyqt/download)
+- [x] [Twisted Pyhtmlizer](http://linuxcommand.org/man_pages/pyhtmlizer1.html)
 
 #### Installation
 
