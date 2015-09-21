@@ -15,9 +15,8 @@ Converts python file into pdf with syntax highlighting and custom size
 ###### Build from source
 
 ```sh
-wget "https://pypi.python.org/packages/source/P/Py2pdf/Py2pdf-0.0.5.tar.gz"
-tar xzvf Py2pdf-0.0.5.tar.gz
-cd Py2pdf-0.0.5
+git clone https://github.com/tushar-rishav/py2pdf.git
+cd py2pdf
 python setup.py install
 
 ```
