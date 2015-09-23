@@ -1,57 +1,93 @@
-### Py2pdf :fax:
-Converts python file into pdf with syntax highlighting and custom size
+## Code2pdf :fax:
+Convert given source code into .pdf with syntax highlighting and more features
 
 | Build Status | Version | Downloads | Python   |
 | ------------ |---------|-----------|----------|
-| [![Build Status](https://travis-ci.org/tushar-rishav/py2pdf.svg?branch=master)](https://travis-ci.org/tushar-rishav/py2pdf)|[![PyPI version](https://badge.fury.io/py/py2pdf.svg)](http://badge.fury.io/py/py2pdf)| [![PyPi downloads](https://img.shields.io/pypi/dw/py2pdf.svg)](https://pypi.python.org/pypi/Py2pdf)|[![PyPI](https://img.shields.io/pypi/pyversions/Py2pdf.svg)](https://pypi.python.org/pypi/Py2pdf)
+| [![Build Status](https://travis-ci.org/tushar-rishav/code2pdf.svg?branch=master)](https://travis-ci.org/tushar-rishav/py2pdf)|[![PyPI version](https://badge.fury.io/py/code2pdf.svg)](http://badge.fury.io/py/py2pdf)| [![PyPi downloads](https://img.shields.io/pypi/dw/code2pdf.svg)](https://pypi.python.org/pypi/Py2pdf)|[![PyPI](https://img.shields.io/pypi/pyversions/Code2pdf.svg)](https://pypi.python.org/pypi/Py2pdf)
 
 
 ### [Demo](https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif)
 ![demo](https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif)
 
-#### Dependencies
+### Dependencies
 - [x] [PyQt](http://www.riverbankcomputing.com/software/pyqt/download)
 
-#### Installation
+### Installation
 
-###### Build from source
+##### Build from source
 
 ```sh
-git clone https://github.com/tushar-rishav/py2pdf.git
-cd py2pdf
+git clone https://github.com/tushar-rishav/code2pdf.git
+cd code2pdf
 python setup.py install
 
 ```
 Or
 
-###### Using pip
+##### Using pip
 
 ```sh
-pip install py2pdf
+pip install code2pdf
 
 ```
-#### Usage
+### Usage
 
 ##### A. As console app
 
 ###### Help
 
 ```sh
-py2pdf -h
+code2pdf -h
 
 ```
+###### Usage
+`  code2pdf [-h] [-l] [-s SIZE] [-S NAME] [-v] filename [outputfile] `
 
 ###### Options
 
 ```sh
--i or --ifile path for input python file
--o or --ofile path for ouput pdf file
--s or --size for pdf file size. Available sizes are A2,A3 and A4. Default one is A3
+positional arguments:
+  filename              absolute path of the python file
+  outputfile            absolute path of the output pdf file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -l, --linenos         include line numbers.
+  -s SIZE, --size SIZE  PDF size. A2,A3,A4,A5 etc
+  -S NAME, --style NAME
+                        the style name for highlighting. Eg. emacs, vim style etc.
+  -v, --version         show program's version number and exit
+
 ```
+###### Available style types are
+
+- [x] autumn
+- [x] borland
+- [x] bw
+- [x] colorful
+- [x] default
+- [x] emacs
+- [x] friendly
+- [x] fruity
+- [x] igor
+- [x] manni
+- [x] monokai
+- [x] murphy
+- [x] native
+- [x] paraiso-dark
+- [x] paraiso-light
+- [x] pastie
+- [x] perldoc
+- [x] rrt
+- [x] tango
+- [x] trac
+- [x] vim
+- [x] vs
+- [x] xcode
 
 ###### Example
 ```sh
-py2pdf -i ~/Py2PDF/Py2pdf/py2pdf.py -o ~/Py2PDF/Demo/demo.pdf -s a3
+ code2pdf -l -s a3 -S emacs ~/Code2Pdf/Code2pdf/code2pdf.py ~/Code2Pdf/Demo/demo.pdf
 
 ```
 To see the demo for above check `Demo/` in github repo
@@ -60,17 +96,20 @@ To see the demo for above check `Demo/` in github repo
 
 ```py
 	
-from Py2pdf.py2pdf import Py2pdf
+from Code2pdf.code2pdf import Code2pdf
 ifile,ofile,size = "test.py", "test.pdf", "A4"
-pdf = Py2pdf(ifile, ofile, size)	# create the Py2pdf object
+pdf = Code2pdf(ifile, ofile, size)	# create the Py2pdf object
 pdf.init_print()	# call print method to print pdf
 
 ```
 
-#### Contributions
+### Contributions
 Have an idea to make it better? Go ahead! I will be happy to see a pull request from you! :blush:
 
-#### License
+### Contributor
+[Christopher Welborn](https://github.com/cjwelborn)
+
+### License
 ![gpl](https://cloud.githubusercontent.com/assets/7397433/9025904/67008062-3936-11e5-8803-e5b164a0dfc0.png)
 
 

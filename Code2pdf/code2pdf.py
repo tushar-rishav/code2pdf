@@ -13,18 +13,18 @@ except ImportError as ex:
         ex))
     sys.exit(1)
 
-__version__ = '0.2.0'
+__version__ = '1.2.0'
 
 
 def logger(func):
     def log_wrap(self, ifile=None, ofile=None, size="A4"):
-        logging.getLogger().name = "py2pdf> "
+        logging.getLogger().name = "code2pdf> "
         logging.getLogger().setLevel(logging.INFO)
         func(self, ifile, ofile, size)
     return log_wrap
 
 
-class Source2pdf:
+class Code2pdf:
 
     """
             Convert a source file into a pdf with syntax highlighting.
@@ -114,7 +114,7 @@ def get_output_file(inputname, outputname=None):
 def parse_arg():
     parser = argparse.ArgumentParser(
         description=(
-            "Convert Python code into pdf with syntax highlighting"),
+            "Convert given source code into .pdf with syntax highlighting"),
         epilog="Author:tushar.rishav@gmail.com"
     )
     parser.add_argument(
@@ -156,7 +156,7 @@ def main():
 
     args = parse_arg()
     pdf_file = get_output_file(args.filename, args.outputfile)
-    pdf = Source2pdf(args.filename, pdf_file, args.size)
+    pdf = Code2pdf(args.filename, pdf_file, args.size)
     pdf.init_print(linenos=args.linenos, style=args.style)
     return 0
 

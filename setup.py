@@ -8,19 +8,19 @@ import sys,os
 extra = {}
 if sys.version_info >= (3,):
     extra['use_2to3'] = True
-setup(name='Py2pdf',
-      version='1.0',
+setup(name='Code2pdf',
+      version='0.0.3',
       install_requires=[
           r for r in open('requirements.txt', 'r').read().split('\n') if r],
       author='Tushar Gautam',
       author_email='tushar.rishav@gmail.com',
-      packages=['Py2pdf', ],
+      packages=['Code2pdf', ],
       entry_points={
-          'console_scripts': ['py2pdf=Py2pdf:main'],
+          'console_scripts': ['code2pdf=Code2pdf:main'],
       },
       license='GNU General Public License v3 (GPLv3)',
-      url='https://github.com/tushar-rishav/py2pdf/',
-      description="Converts python script into pdf file with syntax highlighting",
+      url='https://github.com/tushar-rishav/code2pdf/',
+      description="Converts given source code into pdf file with syntax highlighting, line numbers and much more",
       long_description=open('README').read(),
       keywords=['reminder', 'battery',
                 'notification', 'voice alert', 'python'],
