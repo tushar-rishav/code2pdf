@@ -141,7 +141,7 @@ License
    :alt: gpl
 
 
-.. |Build Status| image:: https://travis-ci.org/tushar-rishav/py2pdf.svg?branch=master
+.. |Build Status| image:: https://travis-ci.org/tushar-rishav/code2pdf.svg?branch=master
    :target: https://travis-ci.org/tushar-rishav/code2pdf
 .. |PyPI version| image:: https://badge.fury.io/py/code2pdf.svg
    :target: http://badge.fury.io/py/py2pdf
