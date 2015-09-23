@@ -12,7 +12,7 @@ Convert given source code into .pdf with syntax highlighting and more features
 `Demo <https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif
+.. figure:: https://cloud.githubusercontent.com/assets/7397433/10060934/645a3cc6-6272-11e5-9ebb-a1ac24c86d67.gif
    :alt: demo
 
 Dependencies
