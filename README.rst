@@ -142,7 +142,7 @@ License
 
 
 .. |Build Status| image:: https://travis-ci.org/tushar-rishav/code2pdf.svg?branch=master
-   :target: https://travis-ci.org/tushar-rishav/code2pdf
+   :target: https://travis-ci.org/tushar-rishav/py2pdf
 .. |PyPI version| image:: https://badge.fury.io/py/Code2pdf.svg
    :target: http://badge.fury.io/py/Code2pdf
 .. |PyPi downloads| image:: https://img.shields.io/pypi/dw/code2pdf.svg
