@@ -12,7 +12,6 @@ Converts python file into pdf with syntax highlighting and custom size
 
 #### Dependencies
 - [x] [PyQt](http://www.riverbankcomputing.com/software/pyqt/download)
-- [x] [Twisted Pyhtmlizer](http://linuxcommand.org/man_pages/pyhtmlizer1.html)
 
 #### Installation
 

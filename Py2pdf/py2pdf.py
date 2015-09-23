@@ -4,7 +4,16 @@ import os
 import sys
 import logging
 import argparse
+import tempfile
 import subprocess
+
+
+def logger(func):
+    def log_wrap(self, ifile=None, ofile=None, size="A4"):
+        logging.getLogger().name = "py2pdf> "
+        logging.getLogger().setLevel(logging.INFO)
+        func(self, ifile, ofile, size)
+    return log_wrap
 
 
 class Py2pdf:
@@ -12,17 +21,9 @@ class Py2pdf:
     """
             converts python file to pdf
     """
-
+    @logger
     def __init__(self, ifile=None, ofile=None, size="A4"):
-
-        logging.getLogger().name = "py2pdf> "
-        logging.getLogger().setLevel(logging.DEBUG)
-        self.temp_location = "/tmp/temp.py"
-        this_dir, this_filename = os.path.split(__file__)
-        self.style = os.path.join(this_dir, "py2html.py")
-        #logging.debug(self.style)
         self.size = size
-        logging.debug(os.path.exists(self.style))   # check if the file has been added,
         if not ifile:
             raise Exception("input file is required")
         else:
@@ -31,26 +32,25 @@ class Py2pdf:
                 self.pdf_file = ofile
             else:
                 self.pdf_file = ifile.split('.')[0]+".pdf"
-            self.create_clone()
-
-    def create_clone(self):
-        """
-                creates a temporary file to copy python file
-        """
-        ftemp = open(self.temp_location, 'wb')
-        fpy = open(self.py_file, 'rb')
-        ftemp.write(fpy.read())
-        ftemp.close()
-        fpy.close()
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".py") as temp:
+                self.temp_file = temp.name
+                try:
+                    temp_data = open(self.py_file, 'rb').read()
+                    temp.write(temp_data)
+                    temp.flush()
+                except Exception as e:
+                    print(e)
+                    sys.exit(1)
 
     def init_print(self):
         app = QApplication(sys.argv)
         doc = QTextDocument()
-        r = "pyhtmlizer -s %s %s" % (self.style, self.temp_location)
+        temp_html = self.temp_file[:-2] + "html"
+        r = "pygmentize -O full,style=emacs -f html -l python -o %s %s" % (
+            temp_html, self.py_file)
         s = subprocess.Popen(r, shell=True)
         s.wait()
-        self.temp_location += ".html"
-        html = open(self.temp_location).read()
+        html = open(temp_html).read()
         doc.setHtml(html)
         printer = QPrinter()
         printer.setOutputFileName(self.pdf_file)
@@ -67,10 +67,11 @@ class Py2pdf:
         logging.info("PDF created at %s" % (self.pdf_file))
 
 
+
 def parse_arg():
     parser = argparse.ArgumentParser(description=" \
-			 Convert Python code into pdf with syntax highlighting", epilog="\
-			 Author:tushar.rishav@gmail.com")
+             Convert Python code into pdf with syntax highlighting", epilog="\
+             Author:tushar.rishav@gmail.com")
     parser.add_argument(
         "-i", "--ifile", help="Absolute path of the python file", type=str)
     parser.add_argument(
@@ -81,7 +82,7 @@ def parse_arg():
     if not args.ifile:
         raise Exception("input file is required")
     else:
-        ifile = args.ifile  # read python file which is to be converted
+        ifile = args.ifile
         if args.ofile:
             pdf_file = args.ofile
         else:
