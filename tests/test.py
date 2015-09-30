@@ -4,7 +4,8 @@ import unittest2
 
 class Code2pdfTestCase(unittest2.TestCase):
     """Tests for `balert/main.py`."""
-
+    def setUp(self):
+        pass
     def run_code2pdf(self):
         try:
             py2pdf_run = subprocess.Popen("code2pdf -h \
