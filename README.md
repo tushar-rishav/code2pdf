@@ -6,7 +6,7 @@ Convert given source code into .pdf with syntax highlighting and more features
 | [![Build Status](https://travis-ci.org/tushar-rishav/code2pdf.svg?branch=master)](https://travis-ci.org/tushar-rishav/code2pdf)|[![PyPI version](https://badge.fury.io/py/Code2pdf.svg)](http://badge.fury.io/py/Code2pdf)| [![PyPi downloads](https://img.shields.io/pypi/dw/code2pdf.svg)](https://pypi.python.org/pypi/Code2pdf)|[![PyPI](https://img.shields.io/pypi/pyversions/Code2pdf.svg)](https://pypi.python.org/pypi/Py2pdf)
 
 
-### [Demo](https://cloud.githubusercontent.com/assets/7397433/9981909/383c2a50-5fe8-11e5-9ad5-90e12a5b838b.gif)
+### [Demo](https://cloud.githubusercontent.com/assets/7397433/10060934/645a3cc6-6272-11e5-9ebb-a1ac24c86d67.gif)
 ![demo](https://cloud.githubusercontent.com/assets/7397433/10060934/645a3cc6-6272-11e5-9ebb-a1ac24c86d67.gif)
 
 ### Dependencies
