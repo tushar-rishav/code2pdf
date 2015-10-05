@@ -9,7 +9,7 @@ try:
     import pygments
     from pygments import lexers, formatters, styles
 except ImportError as ex:
-    print('\nCould not import the required "pygments" module:\n{}'.format(
+    logging.warning('\nCould not import the required "pygments" module:\n{}'.format(
         ex))
     sys.exit(1)
 
@@ -34,7 +34,6 @@ class Code2pdf:
         self.size = size
         if not ifile:
             raise Exception("input file is required")
-
         self.input_file = ifile
         if ofile:
             self.pdf_file = ofile
@@ -55,7 +54,7 @@ class Code2pdf:
                 style=style,
                 full=True)
         except pygments.util.ClassNotFound:
-            print("\nInvalid style name: {}\nExpecting one of:\n    {}".format(
+            logging.error("\nInvalid style name: {}\nExpecting one of:\n    {}".format(
                 style,
                 "\n    ".join(sorted(styles.STYLE_MAP))))
             sys.exit(1)
@@ -70,10 +69,10 @@ class Code2pdf:
                         # No lexer could be guessed.
                         lexer = lexers.get_lexer_by_name("text")
         except EnvironmentError as exread:
-            print("\nUnable to read file: {}\n{}".format(
+            logging.error("\nUnable to read file: {}\n{}".format(
                 self.input_file,
                 exread))
-            sys.exit(1)
+            sys.exit(2)
 
         return pygments.highlight(content, lexer, formatter)
 
@@ -153,7 +152,6 @@ def parse_arg():
 
 
 def main():
-
     args = parse_arg()
     pdf_file = get_output_file(args.filename, args.outputfile)
     pdf = Code2pdf(args.filename, pdf_file, args.size)
