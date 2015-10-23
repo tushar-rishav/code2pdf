@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#! /usr/bin/env python
 from PyQt4.QtGui import QTextDocument, QPrinter, QApplication
 import os
 import sys
