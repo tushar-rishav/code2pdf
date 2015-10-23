@@ -13,7 +13,7 @@ except ImportError as ex:
         module:\n{}'.format(ex))
     sys.exit(1)
 
-__version__ = '1.2.0'
+__version__ = '0.3.0'
 
 
 def logger(func):
