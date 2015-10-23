@@ -5,4 +5,4 @@ tar -zxvf sip-4.16.9.tar.gz
 cd sip-4.16.9/
 python configure.py
 make
-make install
+sudo make install
