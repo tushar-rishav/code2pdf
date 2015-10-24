@@ -2,6 +2,7 @@ sudo: required
 language: python
 python:
   - "2.7"
+  - "2.7_with_system_site_packages"	# for PyQt
 # command to install package
 before_install:
   - pip install setuptools --upgrade

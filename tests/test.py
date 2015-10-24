@@ -1,6 +1,7 @@
 import os
 import unittest2
 import sys
+import logging
 from Code2pdf.code2pdf import *
 try:
     import pygments
