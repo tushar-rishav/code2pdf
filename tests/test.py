@@ -2,7 +2,7 @@ import os
 import unittest2
 import sys
 import logging
-from Code2pdf.code2pdf import *
+from Code2pdf.code2pdf import Code2pdf, get_output_file
 try:
     import pygments
     from pygments import lexers, formatters, styles
@@ -20,7 +20,7 @@ class Code2pdfTestCase(unittest2.TestCase):
     """
 
     def setUp(self):
-        self.filename = "test.py"
+        self.filename = os.path.abspath(os.path.join( "tests","test.py"))
         self.pdf_file = os.path.abspath("test.pdf")
         self.size = "a4"
         self.style = "emacs"
