@@ -2,13 +2,12 @@ sudo: required
 language: python
 python:
   - "2.7"
-  - "2.7_with_system_site_packages" # For PyQt4
 # command to install package
 before_install:
-  - ./install.sh
   - pip install setuptools --upgrade
   - pip install -r requirements.txt
 install:
+  - sudo apt-get -qq install libfreetype6-dev liblcms2-dev libwebp-dev python-qt4
   - python setup.py install
 # command to run tests
 script:
