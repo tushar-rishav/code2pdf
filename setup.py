@@ -3,7 +3,8 @@ try:
 except ImportError:
     from distutils.core import setup
 
-import sys,os
+import sys
+import os
 
 extra = {}
 if sys.version_info >= (3,):

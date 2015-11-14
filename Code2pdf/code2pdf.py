@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#! /usr/bin/env python
 from PyQt4.QtGui import QTextDocument, QPrinter, QApplication
 import os
 import sys
@@ -13,7 +13,7 @@ except ImportError as ex:
         ex))
     sys.exit(1)
 
-__version__ = '1.2.0'
+__version__ = '0.3.0'
 
 
 def logger(func):
