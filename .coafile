@@ -1,0 +1,13 @@
+[Default]
+bears = SpaceConsistencyBear
+files = *.py
+use_spaces = true
+
+[Code2pdf]
+bears = LineLengthBear
+max_line_length = 79
+
+[python]
+bears = PEP8Bear
+files = *.py
+default_actions = PEP8Bear:ApplyPatchAction

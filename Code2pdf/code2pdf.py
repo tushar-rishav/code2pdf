@@ -9,8 +9,8 @@ try:
     import pygments
     from pygments import lexers, formatters, styles
 except ImportError as ex:
-    logging.warning('\nCould not import the required "pygments" module:\n{}'.format(
-        ex))
+    logging.warning('\nCould not import the required "pygments" \
+        module:\n{}'.format(ex))
     sys.exit(1)
 
 __version__ = '1.2.0'
@@ -54,9 +54,8 @@ class Code2pdf:
                 style=style,
                 full=True)
         except pygments.util.ClassNotFound:
-            logging.error("\nInvalid style name: {}\nExpecting one of:\n    {}".format(
-                style,
-                "\n    ".join(sorted(styles.STYLE_MAP))))
+            logging.error("\nInvalid style name: {}\nExpecting one of:\n \
+                {}".format(style, "\n    ".join(sorted(styles.STYLE_MAP))))
             sys.exit(1)
 
         try:

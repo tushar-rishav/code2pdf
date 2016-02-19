@@ -3,7 +3,8 @@ try:
 except ImportError:
     from distutils.core import setup
 
-import sys,os
+import sys
+import os
 
 extra = {}
 if sys.version_info >= (3,):
@@ -20,7 +21,8 @@ setup(name='Code2pdf',
       },
       license='GNU General Public License v3 (GPLv3)',
       url='https://github.com/tushar-rishav/code2pdf/',
-      description="Converts given source code into pdf file with syntax highlighting, line numbers and much more",
+      description="Converts given source code into pdf file with syntax \
+                    highlighting, line numbers and much more",
       long_description=open('README').read(),
       keywords=['pdf', 'markup',
                 'formatting', 'convert code to pdf', 'python'],
