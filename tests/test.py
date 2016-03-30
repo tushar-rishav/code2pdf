@@ -1,6 +1,7 @@
 import os
-import Code2pdf
 import unittest2
+import sys
+import logging
 from Code2pdf.code2pdf import *
 try:
     import pygments
@@ -14,7 +15,9 @@ except ImportError as ex:
 
 class Code2pdfTestCase(unittest2.TestCase):
 
-    """Tests for `balert/main.py`."""
+    """
+        Tests for `code2pdf.py`.
+    """
 
     def setUp(self):
         self.filename = "test.py"

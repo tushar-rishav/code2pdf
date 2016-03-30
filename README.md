@@ -1,15 +1,15 @@
 ## Code2pdf :fax:
 Convert given source code into .pdf with syntax highlighting and more features
 
-| Build Status | Version | Downloads | Python   |
-| ------------ |---------|-----------|----------|
-| [![Build Status](https://travis-ci.org/tushar-rishav/code2pdf.svg?branch=master)](https://travis-ci.org/tushar-rishav/code2pdf)|[![PyPI version](https://badge.fury.io/py/Code2pdf.svg)](http://badge.fury.io/py/Code2pdf)| [![PyPi downloads](https://img.shields.io/pypi/dw/code2pdf.svg)](https://pypi.python.org/pypi/Code2pdf)|[![PyPI](https://img.shields.io/pypi/pyversions/Code2pdf.svg)](https://pypi.python.org/pypi/Py2pdf)
+| Version | Downloads | Python   |
+|---------|-----------|----------|
+|[![PyPI version](https://badge.fury.io/py/Code2pdf.svg)](http://badge.fury.io/py/Code2pdf)| [![PyPi downloads](https://img.shields.io/pypi/dw/code2pdf.svg)](https://pypi.python.org/pypi/Code2pdf)|[![PyPI](https://img.shields.io/pypi/pyversions/Code2pdf.svg)](https://pypi.python.org/pypi/Py2pdf)
 
 ### [Demo](https://cloud.githubusercontent.com/assets/7397433/10060934/645a3cc6-6272-11e5-9ebb-a1ac24c86d67.gif)
 ![demo](https://cloud.githubusercontent.com/assets/7397433/10060934/645a3cc6-6272-11e5-9ebb-a1ac24c86d67.gif)
 
 ### Dependencies
-- [x] [PyQt](http://www.riverbankcomputing.com/software/pyqt/download)
+* [PyQt](http://www.riverbankcomputing.com/software/pyqt/download)
 
 ### Installation
 
@@ -19,16 +19,16 @@ Convert given source code into .pdf with syntax highlighting and more features
 git clone https://github.com/tushar-rishav/code2pdf.git
 cd code2pdf
 python setup.py install
-
 ```
+
 Or
 
 ##### Using pip
 
 ```sh
 pip install code2pdf
-
 ```
+
 ### Usage
 
 ##### A. As console app
@@ -37,10 +37,11 @@ pip install code2pdf
 
 ```sh
 code2pdf -h
-
 ```
+
 ###### Usage
- ` code2pdf [-h] [-l] [-s SIZE] [-S NAME] [-v] filename [outputfile] `
+
+`code2pdf [-h] [-l] [-s SIZE] [-S NAME] [-v] filename [outputfile]`
 
 ###### Options
 
@@ -58,48 +59,48 @@ optional arguments:
   -v, --version         show program's version number and exit
 
 ```
+
 ###### Available style types are
 
-- [x] autumn
-- [x] borland
-- [x] bw
-- [x] colorful
-- [x] default
-- [x] emacs
-- [x] friendly
-- [x] fruity
-- [x] igor
-- [x] manni
-- [x] monokai
-- [x] murphy
-- [x] native
-- [x] paraiso-dark
-- [x] paraiso-light
-- [x] pastie
-- [x] perldoc
-- [x] rrt
-- [x] tango
-- [x] trac
-- [x] vim
-- [x] vs
-- [x] xcode
+* autumn
+* borland
+* bw
+* colorful
+* default
+* emacs
+* friendly
+* fruity
+* igor
+* manni
+* monokai
+* murphy
+* native
+* paraiso-dark
+* paraiso-light
+* pastie
+* perldoc
+* rrt
+* tango
+* trac
+* vim
+* vs
+* xcode
 
 ###### Example
-```sh
- code2pdf -l -s a3 -S emacs ~/Code2Pdf/Code2pdf/code2pdf.py ~/Code2Pdf/Demo/demo.pdf
 
+```sh
+code2pdf -l -s a3 -S emacs ~/Code2Pdf/Code2pdf/code2pdf.py ~/Code2Pdf/Demo/demo.pdf
 ```
+
 To see the demo for above check `Demo/` in github repo
 
 ##### B. As module
 
 ```py
-	
 from Code2pdf.code2pdf import Code2pdf
-ifile,ofile,size = "test.py", "test.pdf", "A4"
-pdf = Code2pdf(ifile, ofile, size)	# create the Py2pdf object
-pdf.init_print()	# call print method to print pdf
-
+ifile, ofile, size = "test.py", "test.pdf", "A4"
+pdf = Code2pdf(ifile, ofile, size)	# create the Code2pdf object
+pdf.init_print()			# call print method to print pdf
 ```
 
 ### Contributions
@@ -110,5 +111,3 @@ Have an idea to make it better? Go ahead! I will be happy to see a pull request 
 
 ### License
 ![gpl](https://cloud.githubusercontent.com/assets/7397433/9025904/67008062-3936-11e5-8803-e5b164a0dfc0.png)
-
-
