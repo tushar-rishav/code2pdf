@@ -1,9 +1,9 @@
 #! /usr/bin/env python
 from PyQt4.QtGui import QTextDocument, QPrinter, QApplication
+import argparse
+import logging
 import os
 import sys
-import logging
-import argparse
 
 try:
     import pygments
