@@ -35,10 +35,7 @@ class Code2pdf:
         if not ifile:
             raise Exception("input file is required")
         self.input_file = ifile
-        if ofile:
-            self.pdf_file = ofile
-        else:
-            self.pdf_file = ifile.split('.')[0] + ".pdf"
+        self.pdf_file = ofile or "{}.pdf".format(ifile.split('.')[0])
 
     def highlight_file(self, linenos=True, style='default'):
         """ Highlight the input file, and return HTML as a string. """
@@ -61,16 +58,14 @@ class Code2pdf:
         try:
             with open(self.input_file, "r") as f:
                 content = f.read()
-                if lexer is None:
-                    try:
-                        lexer = lexers.guess_lexer(content)
-                    except pygments.util.ClassNotFound:
-                        # No lexer could be guessed.
-                        lexer = lexers.get_lexer_by_name("text")
+                try:
+                    lexer = lexer or lexers.guess_lexer(content)
+                except pygments.util.ClassNotFound:
+                    # No lexer could be guessed.
+                    lexer = lexers.get_lexer_by_name("text")
         except EnvironmentError as exread:
-            logging.error("\nUnable to read file: {}\n{}".format(
-                self.input_file,
-                exread))
+            fmt = "\nUnable to read file: {}\n{}"
+            logging.error(fmt.format(self.input_file, exread))
             sys.exit(2)
 
         return pygments.highlight(content, lexer, formatter)
@@ -84,13 +79,8 @@ class Code2pdf:
         printer = QPrinter()
         printer.setOutputFileName(self.pdf_file)
         printer.setOutputFormat(QPrinter.PdfFormat)
-        if self.size.lower() == "a2":
-            printer.setPageSize(QPrinter.A2)
-        elif self.size.lower() == "a3":
-            printer.setPageSize(QPrinter.A3)
-        elif self.size.lower() == "a4":
-            printer.setPageSize(QPrinter.A4)
-
+        page_size_dict = {"a2": QPrinter.A2, "a3": QPrinter.A3, "a4": QPrinter.A4}
+        printer.setPageSize(page_size_dict.get(self.size.lower(), QPrinter.A4))
         printer.setPageMargins(15, 15, 15, 15, QPrinter.Millimeter)
         doc.print_(printer)
         logging.info("PDF created at %s" % (self.pdf_file))
