@@ -97,7 +97,7 @@ To see the demo for above check `Demo/` in github repo
 	
 from Code2pdf.code2pdf import Code2pdf
 ifile,ofile,size = "test.py", "test.pdf", "A4"
-pdf = Code2pdf(ifile, ofile, size)	# create the Py2pdf object
+pdf = Code2pdf(ifile, ofile, size)	# create the Code2pdf object
 pdf.init_print()	# call print method to print pdf
 
 ```
