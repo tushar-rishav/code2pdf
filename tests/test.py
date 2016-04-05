@@ -1,7 +1,8 @@
 import os
-import Code2pdf
 import unittest2
-from Code2pdf.code2pdf import *
+import sys
+import logging
+from Code2pdf.code2pdf import Code2pdf, get_output_file
 try:
     import pygments
     from pygments import lexers, formatters, styles
@@ -14,10 +15,12 @@ except ImportError as ex:
 
 class Code2pdfTestCase(unittest2.TestCase):
 
-    """Tests for `balert/main.py`."""
+    """
+        Tests for `code2pdf.py`.
+    """
 
     def setUp(self):
-        self.filename = "test.py"
+        self.filename = os.path.abspath(os.path.join( "tests","test.py"))
         self.pdf_file = os.path.abspath("test.pdf")
         self.size = "a4"
         self.style = "emacs"
