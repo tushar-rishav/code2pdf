@@ -128,11 +128,14 @@ Contributions
 
 Have an idea to make it better? Go ahead! I will be happy to see a pull
 request from you! :blush:
+While creating a PR, please update the *Contributor* section too( see below ). 
 
 Contributor
 ~~~~~~~~~~~
 
 `Christopher Welborn <https://github.com/cjwelborn>`__
+
+`cclauss <https://github.com/cclauss>`__
 
 License
 ~~~~~~~
