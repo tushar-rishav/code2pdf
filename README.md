@@ -103,6 +103,7 @@ pdf.init_print()	# call print method to print pdf
 ```
 
 ### Contributions
+
 Have an idea to make it better? Go ahead! I will be happy to see a pull request from you! :blush:
 >While creating a PR, please update the *Contributor* section too( see below ). 
 
