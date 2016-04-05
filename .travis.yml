@@ -9,6 +9,6 @@ install:
   - bash .misc/install.sh
   - python setup.py install
 script:
-  - bash .misc/tests.sh
+  - bash .misc/travis.sh
 notifications:
   email: false
