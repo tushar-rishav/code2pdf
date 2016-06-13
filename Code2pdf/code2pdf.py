@@ -48,7 +48,7 @@ class Code2pdf(QApplication):
         lexer = None
         if filename != "-":
             try:
-                lexer = lexers.get_lexer_for_filename(input_file)
+                lexer = lexers.get_lexer_for_filename(filename)
             except pygments.util.ClassNotFound:
                 # Try guessing the lexer (file type) later.
                 pass
@@ -132,7 +132,7 @@ def parse_arg():
     )
     parser.add_argument(
         "filename",
-        help="absolute path of the python file",
+        help="absolute path of the python file, or - for stdin",
         default=["-"],
         nargs="*",
         type=str)
