@@ -24,13 +24,14 @@ def logger(func):
     return log_wrap
 
 
-class Code2pdf:
+class Code2pdf(QApplication):
 
     """
             Convert a source file into a pdf with syntax highlighting.
     """
     @logger
     def __init__(self, ifiles=None, ofile=None, size="A4"):
+        super(Code2pdf, self).__init__(sys.argv)
         self.size = size
         if isinstance(ifiles, str):
             # To maintain backwards compatibility, probably kill this later.
@@ -39,6 +40,25 @@ class Code2pdf:
             raise Exception("input file is required")
         self.input_files = ifiles
         self.pdf_file = ofile or "{}.pdf".format(ifiles[0].split('.')[0])
+
+    def get_lexer(self, filename, content):
+        """ Retrieve the correct lexer for this file, by name or content.
+            If "-" is used as a file name, the lexer is guessed (for stdin).
+        """
+        lexer = None
+        if filename != "-":
+            try:
+                lexer = lexers.get_lexer_for_filename(input_file)
+            except pygments.util.ClassNotFound:
+                # Try guessing the lexer (file type) later.
+                pass
+        if lexer is None:
+            try:
+                lexer = lexers.guess_lexer(content)
+            except pygments.util.ClassNotFound:
+                # No lexer could be guessed.
+                lexer = lexers.get_lexer_by_name("text")
+        return lexer
 
     def highlight_file(self, linenos=True, style='default'):
         """ Highlight the input file, and return HTML as a string. """
@@ -53,30 +73,30 @@ class Code2pdf:
                 {}".format(style, "\n    ".join(sorted(styles.STYLE_MAP))))
             sys.exit(1)
 
-        content = ""
+        allcontent = ""
+        stdin_read = False
         for input_file in self.input_files:
             try:
-                lexer = lexers.get_lexer_for_filename(input_file)
-            except pygments.util.ClassNotFound:
-                # Try guessing the lexer (file type) later.
-                lexer = None
-            try:
-                with open(input_file, "r") as f:
-                    content = "\n".join((content, f.read()))
-                    try:
-                        lexer = lexer or lexers.guess_lexer(content)
-                    except pygments.util.ClassNotFound:
-                        # No lexer could be guessed.
-                        lexer = lexers.get_lexer_by_name("text")
+                if (input_file == "-") and (not stdin_read):
+                    content = sys.stdin.read()
+                    stdin_read = True
+                else:
+                    with open(input_file, "r") as f:
+                        content = f.read()
             except EnvironmentError as exread:
                 fmt = "\nUnable to read file: {}\n{}"
                 logging.error(fmt.format(input_file, exread))
                 sys.exit(2)
-
-        return pygments.highlight(content, lexer, formatter)
+            logging.debug("Highlighting file: {}".format(input_file))
+            lexer = self.get_lexer(input_file, content)
+            allcontent = "\n".join((
+                allcontent,
+                pygments.highlight(content, lexer, formatter)
+            ))
+        return allcontent
 
     def init_print(self, linenos=True, style="default"):
-        app = QApplication(sys.argv)  # noqa
+        # app = QApplication(sys.argv)  # noqa
         doc = QTextDocument()
         doc.setHtml(
             self.highlight_file(linenos=linenos, style=style)
@@ -113,7 +133,8 @@ def parse_arg():
     parser.add_argument(
         "filename",
         help="absolute path of the python file",
-        nargs="+",
+        default=["-"],
+        nargs="*",
         type=str)
     parser.add_argument(
         "-l",
@@ -152,7 +173,7 @@ def main():
     pdf_file = get_output_file(args.filename, args.outputfile)
     pdf = Code2pdf(args.filename, pdf_file, args.size)
     pdf.init_print(linenos=args.linenos, style=args.style)
-    return 0
+    pdf.exit(0)
 
 if __name__ == "__main__":
     sys.exit(main())
