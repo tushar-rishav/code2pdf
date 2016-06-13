@@ -20,7 +20,7 @@ class Code2pdfTestCase(unittest2.TestCase):
     """
 
     def setUp(self):
-        self.filename = os.path.abspath(os.path.join( "tests","test.py"))
+        self.filenames = [os.path.abspath(os.path.join("tests", "test.py"))]
         self.pdf_file = os.path.abspath("test.pdf")
         self.size = "a4"
         self.style = "emacs"
@@ -28,18 +28,23 @@ class Code2pdfTestCase(unittest2.TestCase):
         self.output_file = None
 
     def test_init_print(self):
-        pdf = Code2pdf(self.filename, self.pdf_file, self.size)
+        pdf = Code2pdf(self.filenames, self.pdf_file, self.size)
         pdf.init_print(self.linenos, self.style)
         self.assertTrue(os.path.exists(pdf.pdf_file))    # if pdf printed
 
     def test_highlight_file(self):
-        hpdf = Code2pdf(self.filename, self.pdf_file, self.size)
+        hpdf = Code2pdf(self.filenames, self.pdf_file, self.size)
         html = hpdf.highlight_file(True, 'emacs')
         self.assertIn("!DOCTYPE", html)                 # if html created
 
     def test_get_output_file(self):
         self.assertEqual(
-            get_output_file(self.filename, self.output_file), self.pdf_file)
+            get_output_file(self.filenames, self.output_file), self.pdf_file)
+        # No output file should default to input_filename.pdf.
+        self.assertEqual(
+            get_output_file(["test.py"]),
+            os.path.join(os.getcwd(), "test.pdf")
+        )
 
 if __name__ == "__main__":
     unittest2.main()

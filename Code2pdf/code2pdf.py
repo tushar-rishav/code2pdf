@@ -96,7 +96,6 @@ class Code2pdf(QApplication):
         return allcontent
 
     def init_print(self, linenos=True, style="default"):
-        # app = QApplication(sys.argv)  # noqa
         doc = QTextDocument()
         doc.setHtml(
             self.highlight_file(linenos=linenos, style=style)
