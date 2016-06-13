@@ -30,20 +30,18 @@ class Code2pdf:
             Convert a source file into a pdf with syntax highlighting.
     """
     @logger
-    def __init__(self, ifile=None, ofile=None, size="A4"):
+    def __init__(self, ifiles=None, ofile=None, size="A4"):
         self.size = size
-        if not ifile:
+        if isinstance(ifiles, str):
+            # To maintain backwards compatibility, probably kill this later.
+            ifiles = [ifiles]
+        if not ifiles:
             raise Exception("input file is required")
-        self.input_file = ifile
-        self.pdf_file = ofile or "{}.pdf".format(ifile.split('.')[0])
+        self.input_files = ifiles
+        self.pdf_file = ofile or "{}.pdf".format(ifiles[0].split('.')[0])
 
     def highlight_file(self, linenos=True, style='default'):
         """ Highlight the input file, and return HTML as a string. """
-        try:
-            lexer = lexers.get_lexer_for_filename(self.input_file)
-        except pygments.util.ClassNotFound:
-            # Try guessing the lexer (file type) later.
-            lexer = None
 
         try:
             formatter = formatters.HtmlFormatter(
@@ -55,18 +53,25 @@ class Code2pdf:
                 {}".format(style, "\n    ".join(sorted(styles.STYLE_MAP))))
             sys.exit(1)
 
-        try:
-            with open(self.input_file, "r") as f:
-                content = f.read()
-                try:
-                    lexer = lexer or lexers.guess_lexer(content)
-                except pygments.util.ClassNotFound:
-                    # No lexer could be guessed.
-                    lexer = lexers.get_lexer_by_name("text")
-        except EnvironmentError as exread:
-            fmt = "\nUnable to read file: {}\n{}"
-            logging.error(fmt.format(self.input_file, exread))
-            sys.exit(2)
+        content = ""
+        for input_file in self.input_files:
+            try:
+                lexer = lexers.get_lexer_for_filename(input_file)
+            except pygments.util.ClassNotFound:
+                # Try guessing the lexer (file type) later.
+                lexer = None
+            try:
+                with open(input_file, "r") as f:
+                    content = "\n".join((content, f.read()))
+                    try:
+                        lexer = lexer or lexers.guess_lexer(content)
+                    except pygments.util.ClassNotFound:
+                        # No lexer could be guessed.
+                        lexer = lexers.get_lexer_by_name("text")
+            except EnvironmentError as exread:
+                fmt = "\nUnable to read file: {}\n{}"
+                logging.error(fmt.format(input_file, exread))
+                sys.exit(2)
 
         return pygments.highlight(content, lexer, formatter)
 
@@ -86,7 +91,7 @@ class Code2pdf:
         logging.info("PDF created at %s" % (self.pdf_file))
 
 
-def get_output_file(inputname, outputname=None):
+def get_output_file(inputnames, outputname=None):
     """ If the output name is set, then return it.
         Otherwise, build an output name using the current directory,
         replacing the input name's extension.
@@ -94,7 +99,7 @@ def get_output_file(inputname, outputname=None):
     if outputname:
         return outputname
 
-    inputbase = os.path.split(inputname)[-1]
+    inputbase = os.path.split(inputnames[0])[-1]
     outputbase = "{}.pdf".format(os.path.splitext(inputbase)[0])
     return os.path.join(os.getcwd(), outputbase)
 
@@ -108,6 +113,7 @@ def parse_arg():
     parser.add_argument(
         "filename",
         help="absolute path of the python file",
+        nargs="+",
         type=str)
     parser.add_argument(
         "-l",
@@ -115,7 +121,8 @@ def parse_arg():
         help="include line numbers.",
         action="store_true")
     parser.add_argument(
-        "outputfile",
+        "-o",
+        "--outputfile",
         help="absolute path of the output pdf file",
         nargs="?",
         type=str)
