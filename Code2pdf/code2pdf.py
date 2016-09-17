@@ -79,7 +79,7 @@ class Code2pdf:
         printer = QPrinter()
         printer.setOutputFileName(self.pdf_file)
         printer.setOutputFormat(QPrinter.PdfFormat)
-        page_size_dict = {"a2": QPrinter.A2, "a3": QPrinter.A3, "a4": QPrinter.A4}
+        page_size_dict = {"a2": QPrinter.A2, "a3": QPrinter.A3, "a4": QPrinter.A4, "letter": QPrinter.Letter}
         printer.setPageSize(page_size_dict.get(self.size.lower(), QPrinter.A4))
         printer.setPageMargins(15, 15, 15, 15, QPrinter.Millimeter)
         doc.print_(printer)
@@ -122,7 +122,7 @@ def parse_arg():
     parser.add_argument(
         "-s",
         "--size",
-        help="PDF size. A2,A3,A4,A5 etc",
+        help="PDF size. A2,A3,A4,A5,letter etc",
         type=str,
         default="A3")
     parser.add_argument(
