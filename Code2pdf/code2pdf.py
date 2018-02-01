@@ -133,6 +133,11 @@ def parse_arg():
         default="default",
         metavar="NAME")
     parser.add_argument(
+        "-f",
+        "--filelist",
+        help="filename contains list of files to be converted",
+        action="store_true")
+    parser.add_argument(
         "-v",
         "--version",
         action="version",
@@ -142,9 +147,19 @@ def parse_arg():
 
 def main():
     args = parse_arg()
-    pdf_file = get_output_file(args.filename, args.outputfile)
-    pdf = Code2pdf(args.filename, pdf_file, args.size)
-    pdf.init_print(linenos=args.linenos, style=args.style)
+    if  (args.filelist == False):
+        pdf_file = get_output_file(args.filename, args.outputfile)
+        pdf = Code2pdf(args.filename, pdf_file, args.size)
+        pdf.init_print(linenos=args.linenos, style=args.style)
+    else:
+        with open(args.filename) as filelist:
+            filenames=filelist.read().splitlines()
+        for ifile in filenames:
+            args.filename=ifile
+            pdf_file = get_output_file(args.filename, args.outputfile)
+            pdf = Code2pdf(args.filename, pdf_file, args.size)
+            pdf.init_print(linenos=args.linenos, style=args.style)
+
     return 0
 
 if __name__ == "__main__":
