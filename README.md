@@ -40,7 +40,7 @@ code2pdf -h
 
 ```
 ###### Usage
- ` code2pdf [-h] [-l] [-s SIZE] [-S NAME] [-v] filename [outputfile] `
+ ` code2pdf [-h] [-l] [-s SIZE] [-S NAME] [-f] [-v] filename [outputfile] `
 
 ###### Options
 
@@ -55,6 +55,7 @@ optional arguments:
   -s SIZE, --size SIZE  PDF size. A2,A3,A4,A5 etc
   -S NAME, --style NAME
                         the style name for highlighting. Eg. emacs, vim style etc.
+  -f,--filelist         filename contains list of files to be converted
   -v, --version         show program's version number and exit
 
 ```
