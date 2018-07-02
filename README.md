@@ -112,7 +112,3 @@ Have an idea to make it better? Go ahead! I will be happy to see a pull request 
 
 [cclauss](https://github.com/cclauss)
 
-### License
-![gpl](https://cloud.githubusercontent.com/assets/7397433/9025904/67008062-3936-11e5-8803-e5b164a0dfc0.png)
-
-
