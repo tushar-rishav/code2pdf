@@ -1,5 +1,7 @@
 #! /usr/bin/env python
-from PyQt4.QtGui import QTextDocument, QPrinter, QApplication
+from PyQt5.QtGui import QTextDocument
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtPrintSupport import QPrinter
 import argparse
 import logging
 import os

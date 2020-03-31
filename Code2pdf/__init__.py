@@ -1,1 +1,1 @@
-from code2pdf import main
+from .code2pdf import main
