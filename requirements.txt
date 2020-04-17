@@ -1,2 +1,3 @@
 Pygments
 unittest2
+pyqt5

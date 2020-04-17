@@ -1,5 +1,7 @@
 #! /usr/bin/env python
-from PyQt4.QtGui import QTextDocument, QPrinter, QApplication
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtPrintSupport import QPrinter
+from PyQt5.QtGui import QTextDocument
 import argparse
 import logging
 import os
@@ -13,7 +15,7 @@ except ImportError as ex:
         module:\n{}'.format(ex))
     sys.exit(1)
 
-__version__ = '1.0.0'
+__version__ = '1.1.0'
 
 
 def logger(func):
@@ -71,7 +73,7 @@ class Code2pdf:
         return pygments.highlight(content, lexer, formatter)
 
     def init_print(self, linenos=True, style="default"):
-        app = QApplication(sys.argv)  # noqa
+        app = QApplication([])  # noqa
         doc = QTextDocument()
         doc.setHtml(
             self.highlight_file(linenos=linenos, style=style)
