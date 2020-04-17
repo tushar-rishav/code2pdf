@@ -10,7 +10,7 @@ extra = {}
 if sys.version_info >= (3,):
     extra['use_2to3'] = True
 setup(name='Code2pdf',
-      version='1.0.0',
+      version='1.1.0',
       install_requires=[
           r for r in open('requirements.txt', 'r').read().split('\n') if r],
       author='Tushar Gautam',
@@ -29,7 +29,7 @@ setup(name='Code2pdf',
       classifiers=[
           'Operating System :: POSIX :: Linux',
           'Programming Language :: Python',
-          'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3',
           'Topic :: System :: Monitoring'
       ],
       )
