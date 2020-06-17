@@ -5,6 +5,7 @@ from PyQt5.QtGui import QTextDocument
 import argparse
 import logging
 import os
+import re
 import sys
 
 try:
@@ -75,9 +76,9 @@ class Code2pdf:
     def init_print(self, linenos=True, style="default"):
         app = QApplication([])  # noqa
         doc = QTextDocument()
-        doc.setHtml(
-            self.highlight_file(linenos=linenos, style=style)
-        )
+        doc_html = self.highlight_file(linenos=linenos, style=style)
+        doc_html = re.sub(re.compile(r'<http://pygments.org>'), '', doc_html)
+        doc.setHtml(doc_html)
         printer = QPrinter()
         printer.setOutputFileName(self.pdf_file)
         printer.setOutputFormat(QPrinter.PdfFormat)
