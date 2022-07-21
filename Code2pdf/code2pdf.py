@@ -7,6 +7,7 @@ import logging
 import os
 import re
 import sys
+from pathlib import Path
 
 try:
     import pygments
@@ -71,7 +72,14 @@ class Code2pdf:
             logging.error(fmt.format(self.input_file, exread))
             sys.exit(2)
 
-        return pygments.highlight(content, lexer, formatter)
+        # use file name as title
+        doc_html = pygments.highlight(content, lexer, formatter)
+        file_name = Path(self.input_file).name
+        title_tag = "<h2>"
+        idx = doc_html.index(title_tag) + len(title_tag)
+        doc_html = doc_html[:idx] + '\n' + file_name + '\n' + doc_html[idx:]
+
+        return doc_html
 
     def init_print(self, linenos=True, style="default"):
         app = QApplication([])  # noqa
